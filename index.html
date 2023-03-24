@@ -4,9 +4,124 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lab 5: Audio and Video</title>
+    <script src="j/video_helpers.js" defer></script>
+    <script type="module" src="j/main.js"></script>
+    
 </head>
 <body>
-    
+    <h1>Do you know the PokeRap?</h1>
+
+    <main id="container">
+
+        <section id="col1">
+
+            <video id="vid" width="480" controls>
+                <source src="v/Pokémon - PokéRap.mp4" type="video/mp4">
+                <source src="v/Pokémon - PokéRap.mkv" type="video/mkv">
+                <track id="es" kind="subtitles" label="Espanol" srclang="es" src="subtitles/spanish.vtt">
+                <track id="en" kind="captions" label="English (captions)"
+                srclang="en" src="captions/prap.vtt" default>
+
+                <h2>The PokeRap</h2>
+                <p>I want to be the best there ever was
+                    To beat all the rest, yeah, that's my cause
+                    Electrode, Diglett, Nidoran, Mankey
+                    Venusaur, Rattata, Fearow, Pidgey
+                    Seaking, Jolteon, Dragonite, Gastly
+                    Ponyta, Vaporeon, Poliwrath, Butterfree
+                    Catch 'em, catch 'em, gotta catch 'em all, Pokémon
+                    I'll search across the land, look far and wide
+                    Release from my hand the power that's inside
+                    Venomoth, Poliwag, Nidorino, Golduck
+                    Ivysaur, Grimer, Victreebel, Moltres
+                    Nidoking, Farfetch'd, Abra, Jigglypuff
+                    Kingler, Rhyhorn, Clefable, Wigglytuff
+                    Catch 'em, catch 'em, gotta catch 'em all
+                    Gotta catch 'em all, Pokémon
+                    Zubat, Primeape, Meowth, Onix
+                    Geodude, Rapidash, Magneton, Snorlax
+                    Gengar, Tangela, Goldeen, Spearow
+                    Weezing, Seel, Gyarados, Slowbro
+                    Gotta catch 'em all, gotta catch 'em all (yeah)
+                    Gotta catch 'em all, gotta catch 'em all (yeah)
+                    Gotta catch 'em all, Pokémon (ow)
+                    Kabuto, Persian, Paras, Horsea
+                    Raticate, Magnemite, Kadabra, Weepinbell
+                    Ditto, Cloyster, Caterpie, Sandshrew
+                    Bulbasaur, Charmander, Golem, Pikachu
+                    At least 150 or more to see
+                    To be a Pokémon Master is my destiny
+                    Alakazam, Doduo, Venonat, Machoke
+                    Kangaskhan, Hypno, Electabuzz, Flareon
+                    Blastoise, Poliwhirl, Oddish, Drowzee
+                    Raichu, Nidoqueen, Bellsprout, Starmie
+                    "Whoo, we're at the halfway point, doing great so far!"
+                    "We? What's all this 'we' stuff? I'm doing all the hard work!"
+                    "Break time's over, here we go!"
+                    Metapod, Marowak, Kakuna, Clefairy
+                    Dodrio, Seadra, Vileplume, Krabby
+                    Lickitung, Tauros, Weedle, Nidoran
+                    Machop, Shellder, Porygon, Hitmonchan
+                    Gotta catch 'em all, gotta catch 'em all (yeah)
+                    Gotta catch 'em all, gotta catch 'em all (yeah)
+                    Articuno, Jynx, Nidorina, Beedrill
+                    Haunter, Squirtle, Chansey (Pokémon)
+                    Parasect, Exeggcute, Muk, Dewgong
+                    Pidgeotto, Lapras, Vulpix, Rhydon
+                    At least 150 or more to see
+                    To be a Pokémon Master is my destiny
+                    Charizard, Machamp, Pinsir, Koffing
+                    Dugtrio, Golbat, Staryu, Magikarp
+                    Ninetales, Ekans, Omastar
+                    Scyther, Tentacool, Dragonair, Magmar
+                    "Whoa, catch your breath man, shake out those lips!"
+                    "It's downhill from here, just 24 more to go!"
+                    "Now it gets tricky, so listen real good!"
+                    Sandslash, Hitmonlee, Psyduck, Arcanine
+                    Eevee, Exeggutor, Kabutops, Zapdos
+                    Dratini, Growlithe, Mr. Mime, Cubone
+                    Graveler, Voltorb, Gloom (we're almost home)
+                    Gotta catch 'em all, gotta catch 'em all (yow)
+                    Gotta catch 'em all, gotta catch 'em all (huh)
+                    Gotta catch 'em all, Pokémon (yeah)
+                    Charmeleon, Wartortle
+                    Mewtwo, Tentacruel, Aerodactyl
+                    Omanyte, Slowpoke
+                    Pidgeot, Arbok, that's all, folks
+                    Catch 'em, catch 'em, gotta catch 'em all
+                    Ooh, gotta catch 'em all, Pokémon
+                    Catch 'em, catch 'em, gotta catch 'em all
+                    Ooh, gotta catch 'em all, Pokémon
+                    Catch 'em, catch 'em, gotta catch 'em all
+                    Gotta catch 'em all, Pokémon</p>   
+            </video>
+            
+            <div id="controls">
+                <form id="video-form">
+                    <fieldset>
+                        <legend>Playback Controls</legend>
+                        <input type="button" 
+                        id="play_button" 
+                        onclick="playVideo(vid)" 
+                        value="Play"/>
+                        <input type="button" id="pause_button" onclick="pauseVideo(vid)" value="Pause" />
+						<input type="button" id="mute" onclick="muteVid(vid)" value="Mute" />
+						<input type="button" id="unmute" onclick="unmuteVid(vid)" value="Unmute" />
+
+                        <fieldset>
+                            <legend>Video Navigation</legend>
+                            <input type="button" id="rewind" onclick="seekVideo(vid, 0)" value="Beginning" />
+                            <input type="button" id="end" onclick="seekVideo(vid, 180)" value="End" />
+                            <input type="button" id="pikachu" onclick="seekVideo(vid, 67.5)" value="Pikachu!" />
+                        </fieldset>
+                    </fieldset>
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
 </body>
 </html>
